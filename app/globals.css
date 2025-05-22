@@ -1,0 +1,569 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ * ROOT VARIABLES
+ * These variables define the base styling for the application
+ * They are used throughout the app for consistent theming
+ */
+:root {
+  /* Base colors */
+  --app-background: 220, 25%, 95%;
+  --app-foreground: 220, 25%, 10%;
+  --app-primary: 220, 70%, 50%;
+  --app-primary-foreground: 0, 0%, 100%;
+  --app-secondary: 220, 15%, 90%;
+  --app-secondary-foreground: 220, 25%, 20%;
+  --app-accent: 280, 70%, 50%;
+  --app-accent-foreground: 0, 0%, 100%;
+  --app-card: 0, 0%, 100%;
+  --app-card-foreground: 220, 25%, 10%;
+  --app-border: 220, 15%, 85%;
+  --app-input: 220, 15%, 90%;
+  --app-ring: 220, 70%, 50%;
+
+  /* Sizing and spacing */
+  --app-radius: 12px;
+  --app-font-scale: 1;
+  --app-tile-size: calc(80px * var(--app-font-scale));
+  --app-tile-padding: calc(0.25rem * var(--app-font-scale));
+  --app-grid-gap: calc(0.25rem * var(--app-font-scale));
+
+  /* Category colors - Normal vision */
+  --category-1-bg: 47, 95%, 90%;
+  --category-1-border: 47, 95%, 70%;
+  --category-2-bg: 200, 95%, 90%;
+  --category-2-border: 200, 95%, 70%;
+  --category-3-bg: 320, 95%, 90%;
+  --category-3-border: 320, 95%, 70%;
+  --category-4-bg: 120, 95%, 90%;
+  --category-4-border: 120, 95%, 70%;
+  --category-5-bg: 270, 95%, 90%;
+  --category-5-border: 270, 95%, 70%;
+  --category-6-bg: 30, 95%, 90%;
+  --category-6-border: 30, 95%, 70%;
+  --category-7-bg: 180, 95%, 90%;
+  --category-7-border: 180, 95%, 70%;
+  --category-8-bg: 0, 95%, 90%;
+  --category-8-border: 0, 95%, 70%;
+}
+
+/* 
+ * DARK MODE
+ * Overrides for dark mode theme
+ */
+.dark {
+  --app-background: 220, 25%, 10%;
+  --app-foreground: 220, 15%, 95%;
+  --app-primary: 220, 70%, 50%;
+  --app-primary-foreground: 0, 0%, 100%;
+  --app-secondary: 220, 25%, 20%;
+  --app-secondary-foreground: 220, 15%, 90%;
+  --app-accent: 280, 70%, 50%;
+  --app-accent-foreground: 0, 0%, 100%;
+  --app-card: 220, 25%, 15%;
+  --app-card-foreground: 220, 15%, 95%;
+  --app-border: 220, 25%, 20%;
+  --app-input: 220, 25%, 20%;
+  --app-ring: 220, 70%, 60%;
+
+  /* Dark mode category colors */
+  --category-1-bg: 47, 70%, 30%;
+  --category-1-border: 47, 70%, 40%;
+  --category-2-bg: 200, 70%, 30%;
+  --category-2-border: 200, 70%, 40%;
+  --category-3-bg: 320, 70%, 30%;
+  --category-3-border: 320, 70%, 40%;
+  --category-4-bg: 120, 70%, 30%;
+  --category-4-border: 120, 70%, 40%;
+  --category-5-bg: 270, 70%, 30%;
+  --category-5-border: 270, 70%, 40%;
+  --category-6-bg: 30, 70%, 30%;
+  --category-6-border: 30, 70%, 40%;
+  --category-7-bg: 180, 70%, 30%;
+  --category-7-border: 180, 70%, 40%;
+  --category-8-bg: 0, 70%, 30%;
+  --category-8-border: 0, 70%, 40%;
+}
+
+/* 
+ * COLORBLIND MODES
+ * These classes modify the color palette for different types of colorblindness
+ */
+
+/* Protanopia (red-blind) */
+.protanopia {
+  /* Adjust colors to be distinguishable for protanopia */
+  --category-1-bg: 220, 70%, 90%;
+  --category-1-border: 220, 70%, 70%;
+  --category-2-bg: 180, 70%, 90%;
+  --category-2-border: 180, 70%, 70%;
+  --category-3-bg: 260, 70%, 90%;
+  --category-3-border: 260, 70%, 70%;
+  --category-4-bg: 60, 70%, 90%;
+  --category-4-border: 60, 70%, 70%;
+  --category-5-bg: 200, 70%, 90%;
+  --category-5-border: 200, 70%, 70%;
+  --category-6-bg: 240, 70%, 90%;
+  --category-6-border: 240, 70%, 70%;
+  --category-7-bg: 120, 70%, 90%;
+  --category-7-border: 120, 70%, 70%;
+  --category-8-bg: 280, 70%, 90%;
+  --category-8-border: 280, 70%, 70%;
+}
+
+/* Deuteranopia (green-blind) */
+.deuteranopia {
+  /* Adjust colors to be distinguishable for deuteranopia */
+  --category-1-bg: 240, 70%, 90%;
+  --category-1-border: 240, 70%, 70%;
+  --category-2-bg: 60, 70%, 90%;
+  --category-2-border: 60, 70%, 70%;
+  --category-3-bg: 200, 70%, 90%;
+  --category-3-border: 200, 70%, 70%;
+  --category-4-bg: 280, 70%, 90%;
+  --category-4-border: 280, 70%, 70%;
+  --category-5-bg: 30, 70%, 90%;
+  --category-5-border: 30, 70%, 70%;
+  --category-6-bg: 180, 70%, 90%;
+  --category-6-border: 180, 70%, 70%;
+  --category-7-bg: 260, 70%, 90%;
+  --category-7-border: 260, 70%, 70%;
+  --category-8-bg: 220, 70%, 90%;
+  --category-8-border: 220, 70%, 70%;
+}
+
+/* Tritanopia (blue-blind) */
+.tritanopia {
+  /* Adjust colors to be distinguishable for tritanopia */
+  --category-1-bg: 30, 70%, 90%;
+  --category-1-border: 30, 70%, 70%;
+  --category-2-bg: 0, 70%, 90%;
+  --category-2-border: 0, 70%, 70%;
+  --category-3-bg: 60, 70%, 90%;
+  --category-3-border: 60, 70%, 70%;
+  --category-4-bg: 270, 70%, 90%;
+  --category-4-border: 270, 70%, 70%;
+  --category-5-bg: 90, 70%, 90%;
+  --category-5-border: 90, 70%, 70%;
+  --category-6-bg: 300, 70%, 90%;
+  --category-6-border: 300, 70%, 70%;
+  --category-7-bg: 120, 70%, 90%;
+  --category-7-border: 120, 70%, 70%;
+  --category-8-bg: 330, 70%, 90%;
+  --category-8-border: 330, 70%, 70%;
+}
+
+/* Dark mode colorblind adjustments */
+.dark.protanopia,
+.dark.deuteranopia,
+.dark.tritanopia {
+  /* Darker versions of the colorblind palettes */
+  --category-1-bg: 220, 50%, 30%;
+  --category-1-border: 220, 50%, 40%;
+  --category-2-bg: 180, 50%, 30%;
+  --category-2-border: 180, 50%, 40%;
+  --category-3-bg: 260, 50%, 30%;
+  --category-3-border: 260, 50%, 40%;
+  --category-4-bg: 60, 50%, 30%;
+  --category-4-border: 60, 50%, 40%;
+  --category-5-bg: 200, 50%, 30%;
+  --category-5-border: 200, 50%, 40%;
+  --category-6-bg: 240, 50%, 30%;
+  --category-6-border: 240, 50%, 40%;
+  --category-7-bg: 120, 50%, 30%;
+  --category-7-border: 120, 50%, 40%;
+  --category-8-bg: 280, 50%, 30%;
+  --category-8-border: 280, 50%, 40%;
+}
+
+/* 
+ * BASE STYLES
+ * Core styling for the application
+ */
+body {
+  background-color: hsl(var(--app-background));
+  color: hsl(var(--app-foreground));
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--app-foreground), 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--app-foreground), 0.3);
+}
+
+/* Focus styles for accessibility */
+:focus {
+  outline: 2px solid hsla(var(--app-primary), 0.5);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for UI elements */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+ * COMPONENT STYLES
+ * Custom component classes using Tailwind's @layer
+ */
+@layer components {
+  /* Layout components */
+  .app-container {
+    @apply flex flex-col h-screen w-screen overflow-hidden;
+  }
+
+  .app-header {
+    @apply flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-900 shadow-sm z-10;
+  }
+
+  .app-content {
+    @apply flex-1 overflow-auto p-2 md:p-4;
+  }
+
+  .app-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden;
+  }
+
+  /* Button components */
+  .app-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .app-button-primary {
+    @apply app-button bg-blue-500 hover:bg-blue-600 text-white 
+           focus:ring-blue-500;
+  }
+
+  .app-button-secondary {
+    @apply app-button bg-gray-200 hover:bg-gray-300 text-gray-800 
+           dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200
+           focus:ring-gray-500;
+  }
+
+  /* Form components */
+  .app-input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 
+           dark:border-gray-600 dark:bg-gray-700 focus:ring-2 
+           focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .app-select {
+    @apply app-input appearance-none bg-no-repeat bg-right pr-10;
+  }
+
+  .app-slider {
+    @apply w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer 
+           dark:bg-gray-700 accent-blue-500;
+  }
+
+  /* Word grid and tiles */
+  .word-grid {
+    @apply grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--app-tile-size), 1fr));
+    gap: var(--app-grid-gap);
+  }
+
+  .word-tile {
+    @apply flex flex-col items-center justify-center rounded-lg 
+           border cursor-pointer transition-all duration-100 hover:shadow-md relative;
+    aspect-ratio: 1 / 1;
+    padding: var(--app-tile-padding);
+  }
+
+  /* Category-specific styling */
+  .category-1 {
+    background-color: hsl(var(--category-1-bg));
+    border-color: hsl(var(--category-1-border));
+  }
+
+  .category-2 {
+    background-color: hsl(var(--category-2-bg));
+    border-color: hsl(var(--category-2-border));
+  }
+
+  .category-3 {
+    background-color: hsl(var(--category-3-bg));
+    border-color: hsl(var(--category-3-border));
+  }
+
+  .category-4 {
+    background-color: hsl(var(--category-4-bg));
+    border-color: hsl(var(--category-4-border));
+  }
+
+  .category-5 {
+    background-color: hsl(var(--category-5-bg));
+    border-color: hsl(var(--category-5-border));
+  }
+
+  .category-6 {
+    background-color: hsl(var(--category-6-bg));
+    border-color: hsl(var(--category-6-border));
+  }
+
+  .category-7 {
+    background-color: hsl(var(--category-7-bg));
+    border-color: hsl(var(--category-7-border));
+  }
+
+  .category-8 {
+    background-color: hsl(var(--category-8-bg));
+    border-color: hsl(var(--category-8-border));
+  }
+
+  /* Word components */
+  .word-image {
+    @apply w-full object-contain;
+    height: 60%;
+    max-height: 60%;
+  }
+
+  .word-text {
+    @apply text-center font-medium mt-1;
+    font-size: calc(0.75rem * var(--app-font-scale));
+    line-height: 1.2;
+    max-height: 40%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Message bar components */
+  .message-bar {
+    @apply flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg 
+           border border-gray-200 dark:border-gray-700;
+    min-height: calc(4rem * var(--app-font-scale));
+  }
+
+  .message-item {
+    @apply flex flex-col items-center p-1 rounded-lg mx-1 relative;
+    width: calc(3.5rem * var(--app-font-scale));
+  }
+
+  .message-item-remove {
+    @apply absolute -top-2 -right-2 bg-red-500 text-white rounded-full 
+           flex items-center justify-center cursor-pointer;
+    width: calc(1.25rem * var(--app-font-scale));
+    height: calc(1.25rem * var(--app-font-scale));
+    font-size: calc(0.75rem * var(--app-font-scale));
+  }
+
+  .message-image {
+    @apply object-contain;
+    width: calc(2rem * var(--app-font-scale));
+    height: calc(2rem * var(--app-font-scale));
+  }
+
+  .message-text {
+    @apply font-medium text-center;
+    font-size: calc(0.75rem * var(--app-font-scale));
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Category grid components */
+  .category-grid {
+    @apply grid gap-2 mb-2;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100px * var(--app-font-scale)), 1fr));
+  }
+
+  .category-button {
+    @apply flex items-center justify-center p-2 rounded-lg font-medium cursor-pointer;
+    font-size: calc(0.875rem * var(--app-font-scale));
+    min-height: calc(2.5rem * var(--app-font-scale));
+  }
+
+  .category-button.active {
+    @apply font-bold;
+    box-shadow: inset 0 0 0 2px currentColor;
+  }
+
+  /* Action buttons */
+  .action-buttons {
+    @apply flex space-x-2;
+  }
+
+  .action-button {
+    @apply p-2 rounded-lg text-white flex items-center justify-center;
+    width: calc(2.5rem * var(--app-font-scale));
+    height: calc(2.5rem * var(--app-font-scale));
+  }
+
+  .action-button-speak {
+    @apply bg-blue-500 disabled:bg-blue-300 dark:disabled:bg-blue-800;
+  }
+
+  .action-button-remove {
+    @apply bg-yellow-500 disabled:bg-yellow-300 dark:disabled:bg-yellow-800;
+  }
+
+  .action-button-clear {
+    @apply bg-red-500 disabled:bg-red-300 dark:disabled:bg-red-800;
+  }
+
+  .action-button-add {
+    @apply bg-green-500 disabled:bg-green-300 dark:disabled:bg-green-800;
+  }
+
+  /* Authentication components */
+  .auth-container {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto;
+  }
+
+  .auth-card {
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg w-full max-w-md mx-auto my-8 overflow-hidden animate-slide-in;
+  }
+
+  .auth-header {
+    @apply flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .auth-content {
+    @apply p-4 sm:p-6;
+  }
+
+  .auth-form {
+    @apply space-y-4 w-full max-w-sm mx-auto;
+  }
+
+  .auth-input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .auth-button {
+    @apply w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 disabled:opacity-50;
+  }
+
+  .auth-link {
+    @apply text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 cursor-pointer;
+  }
+
+  .auth-error {
+    @apply bg-red-50 dark:bg-red-900/20 text-red-500 p-3 rounded-xl mb-4;
+  }
+
+  .auth-success {
+    @apply bg-green-50 dark:bg-green-900/20 text-green-500 p-3 rounded-xl mb-4;
+  }
+
+  /* Add these new components to the existing components layer */
+
+  .login-prompt {
+    @apply bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 p-3 rounded-xl mb-4 flex items-center justify-between;
+  }
+
+  .login-prompt-button {
+    @apply bg-blue-500 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap ml-2;
+  }
+
+  .guest-notice {
+    @apply text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center;
+  }
+
+  .word-edit-button {
+    @apply absolute top-1 right-1 p-1 bg-white/80 dark:bg-black/50 rounded-full 
+           opacity-0 group-hover:opacity-100 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-opacity;
+  }
+
+  .custom-word {
+    @apply relative;
+  }
+
+  .word-tile-content {
+    @apply flex flex-col items-center justify-center h-full w-full;
+  }
+
+  .direct-input {
+    @apply bg-transparent border-none outline-none w-full py-2 placeholder-gray-400;
+  }
+
+  .temporary-word {
+    @apply bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600;
+  }
+
+  /* Add new styles for the larger accessibility buttons */
+  .accessibility-button {
+    @apply flex items-center justify-center p-4 rounded-lg text-white font-medium;
+    min-height: 3.5rem;
+  }
+
+  .accessibility-button-speak {
+    @apply bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 dark:disabled:bg-blue-800;
+  }
+
+  .accessibility-button-remove {
+    @apply bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-300 dark:disabled:bg-yellow-800;
+  }
+
+  .accessibility-button-clear {
+    @apply bg-red-500 hover:bg-red-600 disabled:bg-red-300 dark:disabled:bg-red-800;
+  }
+}
+
+/* Animation for slide-in effect */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Font size scaling classes */
+.font-scalable {
+  font-size: calc(1rem * var(--app-font-scale));
+}
+
+.font-scalable-sm {
+  font-size: calc(0.875rem * var(--app-font-scale));
+}
+
+.font-scalable-xs {
+  font-size: calc(0.75rem * var(--app-font-scale));
+}
+
+.font-scalable-lg {
+  font-size: calc(1.125rem * var(--app-font-scale));
+}
+
+.font-scalable-xl {
+  font-size: calc(1.25rem * var(--app-font-scale));
+}
+
+.font-scalable-2xl {
+  font-size: calc(1.5rem * var(--app-font-scale));
+}

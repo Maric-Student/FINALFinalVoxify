@@ -1,0 +1,138 @@
+/* Add to your existing CSS */
+
+.word-bank {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.category-selector {
+  margin-bottom: 15px;
+}
+
+.category-selector select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.words-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.word-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid #ddd;
+}
+
+.word-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.word-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.word-text {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.add-word-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+}
+
+.search-container input {
+  flex: 1;
+}
+
+.pictogram-results {
+  margin-top: 15px;
+}
+
+.pictogram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pictogram-item {
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.pictogram-item.selected {
+  border-color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.pictogram-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.submit-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #3a80d2;
+}
+
+.error {
+  color: #e74c3c;
+  margin-bottom: 15px;
+}
